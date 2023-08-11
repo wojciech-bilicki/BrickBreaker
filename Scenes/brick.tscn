@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b04iybp6ht8an"]
+
+[ext_resource type="Texture2D" uid="uid://cfti0dg1br3g6" path="res://Assets/Brick-Yellow.png" id="1_6b5d0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocjbr"]
+size = Vector2(400, 100)
+
+[node name="Brick" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6b5d0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ocjbr")
