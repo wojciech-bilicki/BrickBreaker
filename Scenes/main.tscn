@@ -13,6 +13,7 @@
 [node name="Paddle" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_mu04s")]
 position = Vector2(0, 283)
 collision_layer = 2
+lock_rotation = true
 speed = 500
 camera = NodePath("../Camera2D")
 

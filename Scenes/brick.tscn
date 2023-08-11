@@ -8,6 +8,11 @@ size = Vector2(400, 100)
 
 [node name="Brick" type="RigidBody2D"]
 collision_layer = 8
+gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
+can_sleep = false
+lock_rotation = true
 freeze = true
 script = ExtResource("1_hcx4l")
 
@@ -16,3 +21,5 @@ texture = ExtResource("1_6b5d0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ocjbr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

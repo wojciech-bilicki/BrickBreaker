@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1691776405
+::res://::1691783467
 icon.svg::CompressedTexture2D::8930314576110466223::1691689152::1691689159::1::::<><>::
 ::res://Assets/::1691689250
 Ball.png::CompressedTexture2D::25358122093138391::1691689245::1691689250::1::::<><>::
@@ -10,10 +10,14 @@ Brick-Orange.png::CompressedTexture2D::3128791612283765901::1691689245::16916892
 Brick-Red.png::CompressedTexture2D::3868637980726902020::1691689245::1691689249::1::::<><>::
 Brick-Yellow.png::CompressedTexture2D::5163539311715488947::1691689245::1691689249::1::::<><>::
 Paddle.png::CompressedTexture2D::4720404449081136864::1691689245::1691689249::1::::<><>::
-::res://Scenes/::1691695288
-ball.tscn::PackedScene::3763854953237766895::1691695288::0::1::::<><>::res://Scripts/ball.gd<>uid://mjv6ea01pjj::::res://Assets/Ball.png
-main.tscn::PackedScene::5061061878760212961::1691695288::0::1::::<><>::uid://csmflybc50ap0::::res://Scenes/paddle.tscn<>uid://btvie2gxsrxal::::res://Scenes/ball.tscn
-paddle.tscn::PackedScene::6061337576853440447::1691695288::0::1::::<><>::res://Scripts/paddle.gd<>uid://b8iumvuax3ufw::::res://Assets/Paddle.png
-::res://Scripts/::1691694861
+::res://Scenes/::1691780877
+ball.tscn::PackedScene::3763854953237766895::1691780877::0::1::::<><>::res://Scripts/ball.gd<>uid://mjv6ea01pjj::::res://Assets/Ball.png
+brick.tscn::PackedScene::4201537401621547193::1691780877::0::1::::<><>::uid://cfti0dg1br3g6::::res://Assets/Brick-Yellow.png<>res://Scripts/brick.gd
+main.tscn::PackedScene::5061061878760212961::1691780877::0::1::::<><>::uid://csmflybc50ap0::::res://Scenes/paddle.tscn<>uid://btvie2gxsrxal::::res://Scenes/ball.tscn<>uid://b61iry6vlosa7::::res://Scenes/wall.tscn<>uid://b04iybp6ht8an::::res://Scenes/brick.tscn<>res://Scripts/brick_spawner.gd
+paddle.tscn::PackedScene::6061337576853440447::1691780877::0::1::::<><>::res://Scripts/paddle.gd<>uid://b8iumvuax3ufw::::res://Assets/Paddle.png
+wall.tscn::PackedScene::4616466061934929128::1691780877::0::1::::<><>::
+::res://Scripts/::1691780784
 ball.gd::GDScript::-1::1691694065::0::1::::Ball<>CharacterBody2D<>::
-paddle.gd::GDScript::-1::1691694861::0::1::::<>RigidBody2D<>::
+brick.gd::GDScript::-1::1691780784::0::1::::Brick<>RigidBody2D<>::
+brick_spawner.gd::GDScript::-1::1691780614::0::1::::<>Node<>::
+paddle.gd::GDScript::-1::1691776416::0::1::::<>RigidBody2D<>::
