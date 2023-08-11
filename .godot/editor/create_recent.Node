@@ -1,7 +1,8 @@
+RigidBody2D
+Marker2D
+Node
 CollisionShape2D
 Sprite2D
 Area2D
-RigidBody2D
-Node
 CharacterBody2D
 Camera2D

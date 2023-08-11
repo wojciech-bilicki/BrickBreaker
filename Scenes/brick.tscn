@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://b04iybp6ht8an"]
+[gd_scene load_steps=4 format=3 uid="uid://b04iybp6ht8an"]
 
 [ext_resource type="Texture2D" uid="uid://cfti0dg1br3g6" path="res://Assets/Brick-Yellow.png" id="1_6b5d0"]
+[ext_resource type="Script" path="res://Scripts/brick.gd" id="1_hcx4l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ocjbr"]
 size = Vector2(400, 100)
 
-[node name="Brick" type="Area2D"]
+[node name="Brick" type="RigidBody2D"]
+collision_layer = 8
+freeze = true
+script = ExtResource("1_hcx4l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_6b5d0")
