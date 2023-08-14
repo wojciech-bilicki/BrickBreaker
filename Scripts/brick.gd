@@ -1,6 +1,7 @@
 extends RigidBody2D
-
 class_name Brick
+
+signal brick_destroyed
 
 @export var level: int = 1
 
@@ -39,8 +40,14 @@ func decrease_level():
 func fade_out():
 	var tween = get_tree().create_tween()
 	tween.tween_property(sprite_2d, "modulate", Color.TRANSPARENT, .5)
-	tween.tween_callback(queue_free)
-	
+	tween.tween_callback(destroy)
 
+func destroy():
+	if self != null:
+		queue_free()
+		brick_destroyed.emit()
+	
+func get_width():
+	return get_size().x
 
 

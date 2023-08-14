@@ -1,5 +1,6 @@
 extends RigidBody2D
 
+class_name Paddle
 var direction = Vector2.ZERO
 
 @export var speed = 200
@@ -34,3 +35,6 @@ func _input(event):
 		direction = Vector2.RIGHT
 	else:
 		direction = Vector2.ZERO
+
+func get_width():
+	return collision_shape_2d.shape.get_rect().size.x

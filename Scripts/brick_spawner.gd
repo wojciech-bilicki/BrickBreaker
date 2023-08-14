@@ -3,9 +3,12 @@ extends Node
 const COLUMNS = 5
 const ROWS = 6
 
+
 @export var brick_scene: PackedScene 
 @export var margin: Vector2 = Vector2(8, 8)
 @export var spawn_start: Marker2D
+
+var brick_count
 
 func _ready():
 	spawn_from_defintion()
@@ -32,7 +35,7 @@ func spawn():
 			brick.set_position(Vector2(x, y))
 
 func spawn_from_defintion():
-	var defintion = LevelDefinitions.level_2 if LevelDefinitions.current_level == 1 else LevelDefinitions.level_1
+	var defintion = LevelDefinitions.level_1 if LevelDefinitions.current_level == 1 else LevelDefinitions.level_2
 	
 	var test_brick = brick_scene.instantiate() as Brick
 	add_child(test_brick)
@@ -43,12 +46,9 @@ func spawn_from_defintion():
 	var rows = defintion.size()
 	var columns = defintion[0].size()
 
-	print_debug(rows)
-	print_debug(columns)
-	var row_width = brick_size.x * columns + margin.x * (columns - 1)
-	print_debug(row_width)
-	var spawn_position = - row_width /2 
+	var row_width = brick_size.x * columns  + margin.x * (columns - 1)
 
+	var spawn_position = -row_width /2 + brick_size.x /2
 
 	for j in rows:
 		for i in columns:
@@ -59,8 +59,14 @@ func spawn_from_defintion():
 			brick.scale *= 0.25
 			add_child(brick)
 			brick.set_level(defintion[j][i])
+			brick_count += 1
 			var x = spawn_position + i * (margin.x + brick.get_size().x * brick.scale.x) 
 			var y = spawn_start.position.y + j * (margin.y + brick.get_size().y * brick.scale.y)
 			brick.set_position(Vector2(x, y)) 
-	
+			brick.brick_destroyed.connect(on_brick_destroyed)
+
+func on_brick_destroyed():
+	brick_count -= 1
+
+	if brick_count == 0:
 	
