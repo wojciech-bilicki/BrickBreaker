@@ -3,12 +3,14 @@ extends Node
 const COLUMNS = 5
 const ROWS = 6
 
+@onready var ui = $"../UI" as UI
+@onready var ball = $"../Ball" as Ball
 
 @export var brick_scene: PackedScene 
 @export var margin: Vector2 = Vector2(8, 8)
 @export var spawn_start: Marker2D
 
-var brick_count
+var brick_count = 0
 
 func _ready():
 	spawn_from_defintion()
@@ -69,4 +71,7 @@ func on_brick_destroyed():
 	brick_count -= 1
 
 	if brick_count == 0:
+		ui.on_level_won()
+		ball.stop_ball()
+	
 	

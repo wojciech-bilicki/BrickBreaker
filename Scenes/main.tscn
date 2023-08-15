@@ -32,16 +32,22 @@ ui = NodePath("../UI")
 [node name="UpperWall" parent="Walls" instance=ExtResource("3_kkgc2")]
 position = Vector2(-578, -334)
 collision_layer = 4
+lock_rotation = true
+freeze = false
 
 [node name="LeftWall" parent="Walls" instance=ExtResource("3_kkgc2")]
 position = Vector2(-586, -334)
 rotation = 1.5708
 collision_layer = 4
+lock_rotation = true
+freeze = false
 
 [node name="RightWall" parent="Walls" instance=ExtResource("3_kkgc2")]
 position = Vector2(586, -334)
 rotation = 1.5708
 collision_layer = 4
+lock_rotation = true
+freeze = false
 
 [node name="BrickSpawner" type="Node" parent="." node_paths=PackedStringArray("spawn_start")]
 script = ExtResource("4_qq3cr")
@@ -49,7 +55,7 @@ brick_scene = ExtResource("4_5xo82")
 spawn_start = NodePath("../Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(-250, -200)
+position = Vector2(2, -290)
 
 [node name="DeathZone" parent="." instance=ExtResource("6_p1d0j")]
 position = Vector2(-575, 432)

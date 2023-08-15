@@ -26,11 +26,6 @@ func set_level(new_level: int):
 	sprite_2d.texture = sprites[new_level - 1]
 
 
-func _on_body_entered(body):
-	print(body)
-	if body is Ball:
-		print("Ball")
-
 func decrease_level():
 	if level > 1:
 		set_level(level - 1)
@@ -38,8 +33,10 @@ func decrease_level():
 		fade_out();
 
 func fade_out():
+	collision_shape_2d.disabled = true
 	var tween = get_tree().create_tween()
 	tween.tween_property(sprite_2d, "modulate", Color.TRANSPARENT, .5)
+	
 	tween.tween_callback(destroy)
 
 func destroy():

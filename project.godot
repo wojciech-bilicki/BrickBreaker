@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 LevelDefinitions="*res://Scripts/level_definitions.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [input]
 
 left={

@@ -9,9 +9,13 @@ var direction = Vector2.ZERO
 var half_paddle_width
 var camera_rect: Rect2
 @onready var collision_shape_2d = $CollisionShape2D
+@onready var ball = $"../Ball" as Ball 
+var is_ball_started = false
+var start_position
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	ball.life_lost.connect(on_ball_lost)
 	camera_rect = camera.get_viewport_rect()
 	half_paddle_width = collision_shape_2d.shape.get_rect().size.x / 2 * scale.x
 	
@@ -35,6 +39,14 @@ func _input(event):
 		direction = Vector2.RIGHT
 	else:
 		direction = Vector2.ZERO
+	
+	if direction != Vector2.ZERO && !is_ball_started:
+		ball.start_ball()
+		is_ball_started = true
 
 func get_width():
 	return collision_shape_2d.shape.get_rect().size.x
+
+func on_ball_lost():
+	is_ball_started = false
+	direction = Vector2.ZERO
